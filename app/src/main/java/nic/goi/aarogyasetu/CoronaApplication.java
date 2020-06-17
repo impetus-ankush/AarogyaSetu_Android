@@ -6,6 +6,8 @@ import android.location.Location;
 import android.location.LocationManager;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.work.Configuration;
 import androidx.work.WorkManager;
 
@@ -27,7 +29,8 @@ public class CoronaApplication extends Application implements Configuration.Prov
 
     public static CoronaApplication instance;
      static Location lastKnownLocation = null;
-    
+    public static boolean appIsInBackground = true;
+
     public static CoronaApplication getInstance() {
         return instance;
     }
@@ -101,6 +104,17 @@ public class CoronaApplication extends Application implements Configuration.Prov
         return new Configuration.Builder().setExecutor(Executors.newFixedThreadPool(8)).build();
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+    public void onAppBackgrounded() {
+        //App in background
+        appIsInBackground = true;
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+    public void onAppForegrounded() {
+        // App in foreground
+        appIsInBackground = false;
+    }
 
 
 

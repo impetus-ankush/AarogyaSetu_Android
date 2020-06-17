@@ -131,4 +131,11 @@
     <string name="hamburger_menu_intro">A lot of Features like Helpline, Privacy Policy, Terms of Use and more can be found here.</string>
     <string name="seconds" translatable="false">sec</string>
     <string name="refresh" translatable="false">Refresh</string>
+
+    <!--Breach dialog-->
+    <string name="btn_white_list_device">Add to white list</string>
+    <string name="title_distance_breach">Social distancing breach</string>
+    <string name="multiple_breaches_message">\"Multiple Aarogya setu users found near to you. Keep appropriate distance from others. Nearby devices are: \"</string>
+    <string name="single_breache_message">\"An Aarogya setu user found near to you. Keep appropriate distance. nearby device is: \"</string>
+
 </resources>
